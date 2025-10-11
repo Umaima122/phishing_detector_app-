@@ -478,6 +478,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Hide Streamlit Branding */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
+
+/* Fix text overflow */
+div, p, span, .stMarkdown, .hero-container, .glass-card, .stat-card, .alert-danger, .alert-success, .hints-panel, .hint-item, .footer {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
 </style>
 """, unsafe_allow_html=True)
 
