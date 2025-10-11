@@ -24,7 +24,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Updated CSS Styling
+# Premium Black & Gold CSS Styling
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
@@ -146,9 +146,35 @@ section[data-testid="stSidebar"] {
     border-radius: 24px;
     padding: 2.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 5px 15px rgba(255,215,0,0.1);
     border: 2px solid rgba(218,165,32,0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: visible;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 24px 24px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 8px 20px rgba(255,215,0,0.2);
+    border-color: rgba(218,165,32,0.4);
+}
+
+.glass-card:hover::before {
+    opacity: 1;
 }
 
 .glass-card > * {
@@ -167,9 +193,19 @@ section[data-testid="stSidebar"] {
     gap: 0.75rem;
     position: relative;
     z-index: 2;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    text-overflow: ellipsis;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    flex-shrink: 0;
 }
 
 /* Stats Grid */
@@ -798,6 +834,7 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
