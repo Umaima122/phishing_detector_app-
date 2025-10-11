@@ -193,6 +193,9 @@ section[data-testid="stSidebar"] {
     gap: 0.75rem;
     position: relative;
     z-index: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .section-icon {
@@ -480,11 +483,20 @@ h1, h2, h3, h4, h5, h6 {
 footer {visibility: hidden;}
 
 /* Fix text overflow */
-div, p, span, .stMarkdown, .hero-container, .glass-card, .stat-card, .alert-danger, .alert-success, .hints-panel, .hint-item, .footer {
+div, p, span, .stMarkdown, .hero-container, .glass-card, .stat-card, .alert-danger, .alert-success, .hints-panel, .hint-item, .footer, .section-header {
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* Ensure section headers fit within glass-card */
+.section-header {
+    max-width: calc(100% - 50px); /* Adjust based on section-icon width */
 }
 </style>
 """, unsafe_allow_html=True)
@@ -842,5 +854,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
 
 
