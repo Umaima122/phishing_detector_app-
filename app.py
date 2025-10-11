@@ -35,86 +35,139 @@ st.markdown(
         font-family: 'Inter', sans-serif;
     }
     
-    .main {
+    .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .main {
+        background: transparent;
         padding: 0;
     }
     
     .block-container {
-        padding: 2rem 3rem;
+        padding: 2rem 3rem !important;
         max-width: 1400px;
+    }
+    
+    /* Remove white bars */
+    section[data-testid="stSidebar"] {
+        display: none;
+    }
+    
+    .element-container {
+        background: transparent !important;
     }
     
     /* Hero Section */
     .hero-container {
         background: rgba(255, 255, 255, 0.98);
-        border-radius: 24px;
-        padding: 3rem 2.5rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        border-radius: 28px;
+        padding: 3.5rem 3rem;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.2), 0 10px 30px rgba(102,126,234,0.3);
         position: relative;
         overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.4);
     }
     
     .hero-container::before {
         content: '';
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -50%;
+        right: -20%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(118,75,162,0.15) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+    
+    .hero-container::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(102,126,234,0.12) 0%, transparent 70%);
         border-radius: 50%;
-        transform: translate(30%, -30%);
     }
     
     .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
+        font-size: 4rem;
+        font-weight: 900;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         position: relative;
         z-index: 1;
+        letter-spacing: -0.02em;
+        text-shadow: 0 4px 20px rgba(102,126,234,0.2);
     }
     
     .hero-subtitle {
-        font-size: 1.25rem;
-        color: #64748b;
-        font-weight: 400;
+        font-size: 1.35rem;
+        color: #475569;
+        font-weight: 500;
         margin-bottom: 1.5rem;
         position: relative;
         z-index: 1;
+        line-height: 1.6;
     }
     
     .hero-badge {
         display: inline-block;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        padding: 0.5rem 1.5rem;
+        padding: 0.7rem 2rem;
         border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin-top: 1rem;
-        box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        font-size: 1rem;
+        font-weight: 700;
+        margin-top: 1.5rem;
+        box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+    
+    .hero-badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102,126,234,0.6);
     }
     
     /* Glass Cards */
     .glass-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        border: 1px solid rgba(255,255,255,0.18);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 15px 45px rgba(0,0,0,0.15), 0 5px 15px rgba(102,126,234,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 24px 24px 0 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
     .glass-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 8px 20px rgba(102,126,234,0.2);
+    }
+    
+    .glass-card:hover::before {
+        opacity: 1;
     }
     
     /* Section Headers */
@@ -555,18 +608,31 @@ with col3:
     )
 
 with st.expander("📈 Detailed Metrics & Confusion Matrix"):
-    fig, ax = plt.subplots(figsize=(6,5))
-    sns.heatmap(model_info["confusion_matrix"], annot=True, fmt="d", ax=ax, cmap="RdPu", cbar=True, square=True)
-    ax.set_xlabel("Predicted", fontsize=12, fontweight='bold')
-    ax.set_ylabel("Actual", fontsize=12, fontweight='bold')
-    ax.set_xticklabels(["Safe", "Phishing"], fontsize=11)
-    ax.set_yticklabels(["Safe", "Phishing"], fontsize=11)
-    ax.set_title("Confusion Matrix", fontsize=14, fontweight='bold', pad=20)
-    st.pyplot(fig)
+    col_matrix, col_spacer = st.columns([1, 1.5])
+    
+    with col_matrix:
+        fig, ax = plt.subplots(figsize=(4,3.5))
+        sns.heatmap(
+            model_info["confusion_matrix"], 
+            annot=True, 
+            fmt="d", 
+            ax=ax, 
+            cmap="RdPu", 
+            cbar=False, 
+            square=True,
+            annot_kws={"size": 14, "weight": "bold"}
+        )
+        ax.set_xlabel("Predicted", fontsize=10, fontweight='bold')
+        ax.set_ylabel("Actual", fontsize=10, fontweight='bold')
+        ax.set_xticklabels(["Safe", "Phishing"], fontsize=9)
+        ax.set_yticklabels(["Safe", "Phishing"], fontsize=9, rotation=0)
+        ax.set_title("Confusion Matrix", fontsize=11, fontweight='bold', pad=10)
+        plt.tight_layout()
+        st.pyplot(fig)
     
     st.write("**Classification Report:**")
     report_df = pd.DataFrame(model_info["report"]).transpose().round(3)
-    st.dataframe(report_df, use_container_width=True)
+    st.dataframe(report_df, use_container_width=True, height=200)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
