@@ -1,4 +1,8 @@
-"""
+with col1:
+    st.markdown(
+        f"""
+        <div class="metric-container">
+            <div style="color: #9ca3af; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">"""
 AI Phishing Email Detector - Premium Professional UI
 TF-IDF + Logistic Regression trained on Kaggle Phishing Emails dataset.
 Author & Deployer: Umaima Qureshi
@@ -36,7 +40,7 @@ st.markdown(
     }
     
     .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
     }
     
     .main {
@@ -60,14 +64,14 @@ st.markdown(
     
     /* Hero Section */
     .hero-container {
-        background: rgba(255, 255, 255, 0.98);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
         border-radius: 28px;
         padding: 3.5rem 3rem;
         margin-bottom: 2.5rem;
-        box-shadow: 0 25px 70px rgba(0,0,0,0.2), 0 10px 30px rgba(102,126,234,0.3);
+        box-shadow: 0 25px 70px rgba(0,0,0,0.5), 0 10px 30px rgba(218,165,32,0.2);
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.4);
+        border: 2px solid rgba(218,165,32,0.3);
     }
     
     .hero-container::before {
@@ -77,7 +81,7 @@ st.markdown(
         right: -20%;
         width: 500px;
         height: 500px;
-        background: radial-gradient(circle, rgba(118,75,162,0.15) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(218,165,32,0.15) 0%, transparent 70%);
         border-radius: 50%;
     }
     
@@ -88,26 +92,26 @@ st.markdown(
         left: -10%;
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(102,126,234,0.12) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
         border-radius: 50%;
     }
     
     .hero-title {
         font-size: 4rem;
         font-weight: 900;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0.75rem;
         position: relative;
         z-index: 1;
         letter-spacing: -0.02em;
-        text-shadow: 0 4px 20px rgba(102,126,234,0.2);
+        filter: drop-shadow(0 4px 20px rgba(255,215,0,0.3));
     }
     
     .hero-subtitle {
         font-size: 1.35rem;
-        color: #475569;
+        color: #e5e7eb;
         font-weight: 500;
         margin-bottom: 1.5rem;
         position: relative;
@@ -117,14 +121,14 @@ st.markdown(
     
     .hero-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        color: #0f0f0f;
         padding: 0.7rem 2rem;
         border-radius: 50px;
         font-size: 1rem;
         font-weight: 700;
         margin-top: 1.5rem;
-        box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        box-shadow: 0 8px 25px rgba(255,215,0,0.4);
         position: relative;
         z-index: 1;
         transition: all 0.3s ease;
@@ -132,18 +136,18 @@ st.markdown(
     
     .hero-badge:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(102,126,234,0.6);
+        box-shadow: 0 12px 35px rgba(255,215,0,0.6);
     }
     
     /* Glass Cards */
     .glass-card {
-        background: rgba(255, 255, 255, 0.97);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
         backdrop-filter: blur(20px);
         border-radius: 24px;
         padding: 2.5rem;
         margin-bottom: 2rem;
-        box-shadow: 0 15px 45px rgba(0,0,0,0.15), 0 5px 15px rgba(102,126,234,0.1);
-        border: 1px solid rgba(255,255,255,0.3);
+        box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 5px 15px rgba(255,215,0,0.1);
+        border: 2px solid rgba(218,165,32,0.2);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
     }
@@ -155,7 +159,7 @@ st.markdown(
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
         border-radius: 24px 24px 0 0;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -163,7 +167,8 @@ st.markdown(
     
     .glass-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 8px 20px rgba(102,126,234,0.2);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 8px 20px rgba(255,215,0,0.2);
+        border-color: rgba(218,165,32,0.4);
     }
     
     .glass-card:hover::before {
@@ -174,7 +179,7 @@ st.markdown(
     .section-header {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #1e293b;
+        color: #f5f5f5;
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
@@ -184,76 +189,109 @@ st.markdown(
     .section-icon {
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
+        box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
     
     /* Stats Grid */
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1.5rem;
-        margin: 1.5rem 0;
+        margin: 2rem 0;
     }
     
     .stat-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1.5rem;
-        border-radius: 16px;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
         text-align: center;
-        color: white;
-        box-shadow: 0 8px 24px rgba(102,126,234,0.3);
+        color: #0f0f0f;
+        box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transition: all 0.5s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(255,215,0,0.5);
+    }
+    
+    .stat-card:hover::before {
+        top: -30%;
+        right: -30%;
     }
     
     .stat-value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.25rem;
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        color: #0f0f0f;
     }
     
     .stat-label {
-        font-size: 0.9rem;
-        font-weight: 500;
-        opacity: 0.95;
+        font-size: 0.95rem;
+        font-weight: 600;
+        opacity: 0.9;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 1;
+        color: #0f0f0f;
     }
     
     /* Input Areas */
     .stTextArea textarea {
         border-radius: 16px;
-        border: 2px solid #e2e8f0;
+        border: 2px solid rgba(218,165,32,0.3);
         font-size: 1rem;
         transition: all 0.3s ease;
-        background: white;
+        background: #1a1a1a;
+        color: #e5e7eb;
     }
     
     .stTextArea textarea:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        border-color: #FFD700;
+        box-shadow: 0 0 0 3px rgba(255,215,0,0.2);
     }
     
     /* Buttons */
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        color: #0f0f0f;
         border: none;
         border-radius: 12px;
         padding: 0.75rem 2.5rem;
         font-size: 1.1rem;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        box-shadow: 0 4px 15px rgba(255,215,0,0.4);
         width: 100%;
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+        box-shadow: 0 6px 20px rgba(255,215,0,0.6);
     }
     
     /* Alert Boxes */
@@ -296,10 +334,11 @@ st.markdown(
     
     /* Hints Panel */
     .hints-panel {
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
         border-radius: 16px;
         padding: 1.5rem;
-        border-left: 4px solid #667eea;
+        border-left: 4px solid #FFD700;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     
     .hint-item {
@@ -308,14 +347,14 @@ st.markdown(
         gap: 0.75rem;
         margin-bottom: 1rem;
         font-size: 0.95rem;
-        color: #475569;
+        color: #d1d5db;
     }
     
     .hint-icon {
         min-width: 24px;
         height: 24px;
-        background: #667eea;
-        color: white;
+        background: #FFD700;
+        color: #0f0f0f;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -326,26 +365,27 @@ st.markdown(
     
     /* Expanders */
     .streamlit-expanderHeader {
-        background: rgba(102,126,234,0.1);
+        background: rgba(218,165,32,0.15);
         border-radius: 12px;
         font-weight: 600;
-        color: #1e293b;
+        color: #f5f5f5;
     }
     
     /* Footer */
     .footer {
-        background: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
         border-radius: 16px;
         padding: 2rem;
         text-align: center;
         margin-top: 3rem;
-        color: #64748b;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        color: #9ca3af;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        border: 2px solid rgba(218,165,32,0.2);
     }
     
     .footer-name {
         font-weight: 700;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -358,25 +398,33 @@ st.markdown(
     
     /* File Uploader */
     .stFileUploader {
-        border: 2px dashed #cbd5e1;
+        border: 2px dashed rgba(218,165,32,0.4);
         border-radius: 16px;
         padding: 1.5rem;
-        background: rgba(248,250,252,0.5);
+        background: rgba(26,26,26,0.5);
         transition: all 0.3s ease;
     }
     
     .stFileUploader:hover {
-        border-color: #667eea;
-        background: rgba(102,126,234,0.05);
+        border-color: #FFD700;
+        background: rgba(218,165,32,0.1);
+    }
+    
+    .stFileUploader label {
+        color: #e5e7eb !important;
     }
     
     /* Metric Cards */
     .metric-container {
-        background: white;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
         padding: 1.25rem;
         border-radius: 12px;
-        border-left: 4px solid #667eea;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-left: 4px solid #FFD700;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    .metric-container div {
+        color: #e5e7eb;
     }
     
     /* Animations */
@@ -430,7 +478,7 @@ st.markdown(
     <div class="hero-container">
         <div class="hero-title">🛡️ AI Phishing Shield</div>
         <div class="hero-subtitle">Advanced machine learning protection against email threats</div>
-        <div style="color: #64748b; font-size: 1rem; line-height: 1.6;">
+        <div style="color: #d1d5db; font-size: 1rem; line-height: 1.6;">
             Powered by TF-IDF vectorization and Logistic Regression, trained on thousands of real-world phishing examples. 
             Get instant threat analysis with confidence scoring and explainable AI insights.
         </div>
@@ -576,8 +624,8 @@ with col1:
     st.markdown(
         f"""
         <div class="metric-container">
-            <div style="color: #64748b; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Accuracy</div>
-            <div style="font-size: 2rem; font-weight: 800; color: #667eea;">{accuracy:.1%}</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Accuracy</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #FFD700;">{accuracy:.1%}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -588,8 +636,8 @@ with col2:
     st.markdown(
         f"""
         <div class="metric-container">
-            <div style="color: #64748b; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Precision</div>
-            <div style="font-size: 2rem; font-weight: 800; color: #667eea;">{precision:.1%}</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Precision</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #FFD700;">{precision:.1%}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -600,8 +648,8 @@ with col3:
     st.markdown(
         f"""
         <div class="metric-container">
-            <div style="color: #64748b; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Recall</div>
-            <div style="font-size: 2rem; font-weight: 800; color: #667eea;">{recall:.1%}</div>
+            <div style="color: #9ca3af; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Recall</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #FFD700;">{recall:.1%}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -794,4 +842,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
