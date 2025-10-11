@@ -24,7 +24,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Updated CSS Styling
+# Premium Black & Gold CSS Styling
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
@@ -76,7 +76,6 @@ section[data-testid="stSidebar"] {
     height: 500px;
     background: radial-gradient(circle, rgba(218,165,32,0.15) 0%, transparent 70%);
     border-radius: 50%;
-    z-index: 0;
 }
 
 .hero-container::after {
@@ -88,12 +87,6 @@ section[data-testid="stSidebar"] {
     height: 400px;
     background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
     border-radius: 50%;
-    z-index: 0;
-}
-
-.hero-container > * {
-    position: relative;
-    z-index: 2;
 }
 
 .hero-title {
@@ -146,14 +139,33 @@ section[data-testid="stSidebar"] {
     border-radius: 24px;
     padding: 2.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 5px 15px rgba(255,215,0,0.1);
     border: 2px solid rgba(218,165,32,0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: visible;
 }
 
-.glass-card > * {
-    position: relative;
-    z-index: 2;
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 24px 24px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 8px 20px rgba(255,215,0,0.2);
+    border-color: rgba(218,165,32,0.4);
+}
+
+.glass-card:hover::before {
+    opacity: 1;
 }
 
 /* Section Headers */
@@ -167,9 +179,19 @@ section[data-testid="stSidebar"] {
     gap: 0.75rem;
     position: relative;
     z-index: 2;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    text-overflow: ellipsis;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    flex-shrink: 0;
 }
 
 /* Stats Grid */
@@ -395,38 +417,10 @@ section[data-testid="stSidebar"] {
     color: #e5e7eb;
 }
 
-/* Additional fixes for content positioning */
-.stMarkdown, .stMarkdown p {
-    color: #e5e7eb;
-}
-
-div[data-testid="stExpander"] {
-    background: transparent;
-    border: 1px solid rgba(218,165,32,0.2);
+/* Dataframe Styling */
+.dataframe {
     border-radius: 12px;
-}
-
-div[data-testid="stExpander"] > div {
-    background: rgba(218,165,32,0.05);
-}
-
-.stDataFrame {
-    background: transparent;
-}
-
-.stInfo, .stWarning {
-    background: rgba(26,26,26,0.8);
-    color: #e5e7eb;
-    border-left-color: #FFD700;
-}
-
-/* Make sure all text in containers is visible */
-.element-container, .stMarkdown, p, span, div {
-    color: inherit;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #f5f5f5 !important;
+    overflow: hidden;
 }
 
 /* Animations */
@@ -537,7 +531,7 @@ safe_count = (df['label'] == 0).sum()
 total_count = len(df)
 
 st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-st.markdown('<div class="section-header"><div class="section-icon">📊</div><span>Dataset Statistics</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"><div class="section-icon">📊</div>Dataset Statistics</div>', unsafe_allow_html=True)
 
 st.markdown(f"""
 <div class="stats-grid">
@@ -597,7 +591,7 @@ vectorizer, model, accuracy = model_info["vectorizer"], model_info["model"], mod
 
 # Model Performance
 st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-st.markdown('<div class="section-header"><div class="section-icon">🎯</div><span>Model Performance</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"><div class="section-icon">🎯</div>Model Performance</div>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 
@@ -658,7 +652,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Inference UI
 st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-st.markdown('<div class="section-header"><div class="section-icon">✉️</div><span>Email Threat Scanner</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"><div class="section-icon">✉️</div>Email Threat Scanner</div>', unsafe_allow_html=True)
 
 col_input, col_hints = st.columns([2, 1])
 
@@ -798,7 +792,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 
 
 
